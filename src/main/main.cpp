@@ -1,7 +1,9 @@
-#include <iostream>
+#include "src/lib/cpplib.h"
+
 int main(){
 
-  std::cout << "Hello World" << std::endl;
+  MyHelloClass helloClass;
+  helloClass.sayHello();
 
   return 0;
 }
