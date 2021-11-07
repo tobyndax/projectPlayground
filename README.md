@@ -1,5 +1,7 @@
 # projectPlayground
 
+[![Build](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml/badge.svg)](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml)
+
 ## Installing Bazel
 The recommended way of installing Bazel is Bazelisk.
 
