@@ -1,6 +1,6 @@
 #include "src/lib/cpplib.h"
 
-int main(){
+int main() {
 
   MyHelloClass helloClass;
   helloClass.sayHello();
