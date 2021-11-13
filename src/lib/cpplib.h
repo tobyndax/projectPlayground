@@ -1,6 +1,6 @@
 #pragma once
 
-class MyHelloClass{ 
+class MyHelloClass {
 public:
   void sayHello();
 };
