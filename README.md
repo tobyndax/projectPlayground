@@ -17,3 +17,16 @@ It can be installed via binary release, npm or homebrew, lets try npm.
 ## Running tests
 
 `bazel test tests:tests`
+
+## Formatting
+A pre-commit hook for clang-format and other whitespace issues for yaml files and eol issues is set up.
+This uses the pre-commit framework, which makes things such as which version of clang-format being used, much more
+convenient.
+
+### Pre Commit installation
+[Pre-Commit](https://pre-commit.com/#install).
+Basically run `pip install pre-commit`
+
+### Running formatting
+Running `pre-commit run --all-files` formats all .cpp and .h files inplace, and checks for other issues.
+`pre-commit run` does the same but for all changed files.
