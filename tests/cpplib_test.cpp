@@ -2,13 +2,13 @@
 
 #include "gtest/gtest.h"
 
-TEST(CPPLibTest, ReturnHelloWorld){
+TEST(CPPLibTest, ReturnHelloWorld) {
   MyHelloClass testInstance;
 
   testing::internal::CaptureStdout();
-  
+
   testInstance.sayHello();
 
   std::string output = testing::internal::GetCapturedStdout();
-  EXPECT_EQ("Hello, world!\n", output);    
+  EXPECT_EQ("Hello, world!\n", output);
 }

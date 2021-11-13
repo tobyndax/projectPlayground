@@ -20,11 +20,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-    
-    steps: 
+
+    steps:
       - uses: actions/checkout@v2
       - name: run tests
         run: bazelisk test tests:tests
       - name: build and run main
         run: bazelisk run src/main:main
-        
