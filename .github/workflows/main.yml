@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-and-test:
     name: build and test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
@@ -23,7 +23,37 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: run tests
         run: bazelisk test tests:tests
+
+      - name: save test path
+        run: |
+            echo "TESTPATH=$(bazelisk info bazel-testlogs)" >> $GITHUB_ENV
+
       - name: build and run main
         run: bazelisk run src/main:main
+
+      - name: upload test results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Unit Tests (${{ matrix.os }})
+          path: ${{ env.TESTPATH }}
+
+  publish-test-results:
+    name: Publish Unit Tests Results
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: artifacts
+
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: artifacts/**/*.xml
