@@ -29,7 +29,11 @@ jobs:
 
       - name: save test path
         run: |
-            echo "TESTPATH=$(bazelisk info bazel-testlogs)" >> $GITHUB_ENV
+          echo "TESTPATH=$(bazelisk info bazel-testlogs)" >> $env:GITHUB_ENV
+
+      - name: save test path posix
+        run: |
+          echo "TESTPATH=$(bazelisk info bazel-testlogs)" >> $GITHUB_ENV
 
       - name: build and run main
         run: bazelisk run src/main:main
@@ -39,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Unit Tests (${{ matrix.os }})
-          path: ${{ env.TESTPATH }}
+          path: "${{ env.TESTPATH }}/**/*.xml"
 
   publish-test-results:
     name: Publish Unit Tests Results
