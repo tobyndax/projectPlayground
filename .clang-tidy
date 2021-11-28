@@ -1,0 +1,17 @@
+Checks: >
+    bugprone-*,
+    cppcoreguidelines-*,
+    google-*,
+    performance-*,
+    modernize-*,
+    readability-*,
+    header-filter=.*,
+    -system-headers,
+    -readability-convert-member-functions-to-static,
+    -cppcoreguidelines-owning-memorystatic,
+    -cppcoreguidelines-owning-memory,
+    -modernize-use-trailing-return-type,
+
+HeaderFilterRegex: ".*"
+
+WarningsAsErrors: "*"
