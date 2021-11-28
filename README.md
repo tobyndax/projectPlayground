@@ -2,6 +2,9 @@
 
 [![Build](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml/badge.svg)](https://github.com/tobyndax/projectPlayground/actions/workflows/main.yml)
 
+## Commit messages
+Commits follow the [conventional-commits syntax](https://www.conventionalcommits.org/en/v1.0.0/)
+
 ## Installing Bazel
 The recommended way of installing Bazel is Bazelisk.
 
