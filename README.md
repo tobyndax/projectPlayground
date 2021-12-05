@@ -19,7 +19,8 @@ It can be installed via binary release, npm or homebrew, lets try npm.
 
 ## Running tests
 
-`bazel test tests:tests`
+`bazel test --test_output=errors //...`
+This command runs all tests but also outputs the outputs of failed tests
 
 ## Formatting
 A pre-commit hook for clang-format and other whitespace issues for yaml files and eol issues is set up.
