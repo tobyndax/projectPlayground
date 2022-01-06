@@ -16,7 +16,7 @@ It can be installed via binary release, npm or homebrew, lets try npm.
 
 ## Running tests
 
-`bazel test tests:tests`
+`bazel test --test_output=all //...`
 
 ## Debugging
 `bazel build --config debug src/main:main`
