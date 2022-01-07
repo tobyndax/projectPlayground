@@ -24,10 +24,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: save cache path
+        run: |
+          echo "CACHEPATH=$(bazelisk info repository_cache)" >> $env:GITHUB_ENV
+
+      - name: save cache path posix
+        run: |
+          echo "CACHEPATH=$(bazelisk info repository_cache)" >> $GITHUB_ENV
+
       - name: Mount bazel cache
         uses: actions/cache@v2
         with:
-          path: "$(bazelisk info repository_cache)"
+          path: "${{env.CACHEPATH}}"
           key: bazel_${{matrix.os}}
 
       - name: run tests
