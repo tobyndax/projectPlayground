@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: "/home/runner/.cache/bazel"
-          key: bazel
+          key: bazel_${{matrix.os}}
 
       - name: run tests
         run: bazelisk test tests:tests
