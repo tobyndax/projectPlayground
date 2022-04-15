@@ -28,8 +28,9 @@ convenient.
 
 ### Pre Commit installation
 [Pre-Commit](https://pre-commit.com/#install).
-Basically run `pip install pre-commit`
-
+Basically run `pip install pre-commit` and in the repository once a pre-commit configuration is placed there, follow
+instructions here https://pre-commit.com/#2-add-a-pre-commit-configuration
+run `pre-commit install`
 ### Running formatting
 Running `pre-commit run --all-files` formats all .cpp and .h files inplace, and checks for other issues.
 `pre-commit run` does the same but for all changed files.
